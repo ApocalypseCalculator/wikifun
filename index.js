@@ -9,11 +9,21 @@ const readline = require('readline').createInterface({
 });
 
 const visited = new Set();
+let limit = config.limit;
+let jumps = 0;
 
 readline.question('\nEnter starting page (the text after the /wiki/ in the url)\n', name => {
-    readline.close();
-    console.log();
-    recurse(name);
+    readline.question('Maximum link jumps you want to do?\n', lim => {
+        if (isNaN(lim) || parseInt(lim) <= 0) {
+            console.log(`Invalid number, using ${limit} as limit`);
+        }
+        else {
+            limit = parseInt(lim);
+        }
+        readline.close();
+        console.log();
+        recurse(name);
+    })
 });
 
 function recurse(name) {
@@ -44,11 +54,19 @@ function recurse(name) {
                 let first = arr[Math.floor(Math.random() * arr.length)];
                 console.log(first);
                 visited.add(first);
-                recurse(first);
+                jumps++;
+                if (jumps > limit) {
+                    console.log("\nJump limit reached!");
+                    process.exit(0);
+                }
+                else {
+                    recurse(first);
+                }
             }
         }
         else {
             console.log(`\nNon 200 OK status received`);
+            process.exit(0);
         }
     }).catch(err => { console.log(`\nRequest failed. Is the article valid?`); process.exit(0); });
 }
