@@ -1,0 +1,27 @@
+{
+  "name": "wikifun",
+  "version": "0.0.1",
+  "description": "A fun tool that traverses through every first wikipedia link recursively until a dead end or cycle is reached",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ApocalypseCalculator/wikifun.git"
+  },
+  "keywords": [
+    "wikipedia",
+    "fun"
+  ],
+  "author": "ApocalypseCalculator",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/ApocalypseCalculator/wikifun/issues"
+  },
+  "homepage": "https://github.com/ApocalypseCalculator/wikifun#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "jsdom": "^16.6.0"
+  }
+}
