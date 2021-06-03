@@ -55,7 +55,7 @@ function recurse(name) {
                 console.log(first);
                 visited.add(first);
                 jumps++;
-                if (jumps > limit) {
+                if (jumps >= limit) {
                     console.log("\nJump limit reached!");
                     process.exit(0);
                 }
