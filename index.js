@@ -10,7 +10,7 @@ const readline = require('readline').createInterface({
 
 const visited = new Set();
 
-readline.question('Enter starting page (the text after the /wiki/ in the url)\n', name => {
+readline.question('\nEnter starting page (the text after the /wiki/ in the url)\n', name => {
     readline.close();
     console.log();
     recurse(name);
@@ -50,6 +50,9 @@ function recurse(name) {
                 visited.add(first);
                 recurse(first);
             }
+        }
+        else {
+            console.log(`\nNon 200 OK status received`);
         }
     }).catch(err => { console.log(`\nRequest failed. Is the article valid?`); process.exit(0); });
 }
