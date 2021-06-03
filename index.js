@@ -12,6 +12,7 @@ const visited = new Set();
 
 readline.question('Enter starting page (the text after the /wiki/ in the url)\n', name => {
     readline.close();
+    console.log();
     recurse(name);
 });
 
@@ -31,7 +32,7 @@ function recurse(name) {
                     if (l.href.startsWith(`${config.path}`) && good) {
                         let val = `${l.href.slice(6).charAt(0).toLowerCase()}${l.href.slice(6).slice(1)}`;
                         if (visited.has(val)) {
-                            console.log("Cycle reached!");
+                            console.log("\nCycle reached!");
                             process.exit(0);
                         }
                         else {
@@ -41,7 +42,7 @@ function recurse(name) {
                 }
             })
             if (first == "") {
-                console.log("Dead end reached!");
+                console.log("\nDead end reached!");
                 process.exit(0);
             }
             else {
@@ -50,5 +51,5 @@ function recurse(name) {
                 recurse(first);
             }
         }
-    }).catch(err => { console.log(err + `Request failed. Is the article valid?`); process.exit(0); });
+    }).catch(err => { console.log(`\nRequest failed. Is the article valid?`); process.exit(0); });
 }
