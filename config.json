@@ -2,6 +2,6 @@
     "domain": "en.wikipedia.org",
     "path": "/wiki/",
     "protocol": "https://",
-    "ignore": ["Wikipedia:", "File:", "Help:", "Category:", "Special:", "Main_Page", "MOS:", "Wikipedia_talk:", "Template:", "Talk:", "Portal:"],
+    "ignore": ["Wikipedia:", "File:", "Help:", "Category:", "Special:", "Main_Page", "MOS:", "Wikipedia_talk:", "Template:", "Talk:", "Portal:", "Template_talk:", "User:"],
     "limit": 1000
 }
